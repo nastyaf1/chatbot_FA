@@ -6,7 +6,7 @@ import os
 import google.generativeai as genai
 from aiogram.types import TelegramObject
 from aiogram.filters import BaseFilter
-import uts_pdf_ai
+import AI_response
 
 # использованные токены убраны
 token = "MY_TELEGRAM_BOT_TOKEN"
@@ -75,7 +75,7 @@ async def admin_statistic(call: types.CallbackQuery):
 
 @dp.message()
 async def llm_answer(message: types.Message)-> None:
-    await message.answer(uts_pdf_ai.pdf_smart_search(message.text))
+    await message.answer(AI_response.gemini_answer(message.text))
 
 
 async def main() -> None:
